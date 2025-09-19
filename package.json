@@ -8,17 +8,17 @@
   },
   "keywords": [],
   "author": {
-    "name": "Gabriel Basilio",
-    "email": "gabrielbb0306@gmail.com",
-    "url": "http://github.com/GabrielBB"
+    "name": "Mikael Göransson",
+    "email": "github@mgor.se",
+    "url": "http://github.com/mgor"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.9.1",
-    "@actions/exec": "^1.0.3"
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.36.0"
