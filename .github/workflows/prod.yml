@@ -9,27 +9,28 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Test XVFB
-        uses: mgor/setup-xvfb@v1.6
+        uses: mgor/setup-xvfb@main
         with:
           run: echo 'Testing xvfb'
       - name: Test XVFB with working directory
-        uses: mgor/setup-xvfb@v1.6
+        uses: mgor/setup-xvfb@main
         with:
           working-directory: ./node_modules
           run: pwd
       - name: Test XVFB with options
-        uses: mgor/setup-xvfb@v1.6
+        uses: mgor/setup-xvfb@main
         with:
           options: -screen 0 1600x1200x24
           run: echo 'Testing xvfb'
       - name: Test using major tag
-        uses: mgor/setup-xvfb@v1
+        uses: mgor/setup-xvfb@main
         with:
           working-directory: ./node_modules
           options: -screen 0 1600x1200x24

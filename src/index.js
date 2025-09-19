@@ -1,5 +1,5 @@
-const core = require("@actions/core");
-const exec = require("@actions/exec");
+import * as core from "@actions/core";
+import * as exec from "@actions/exec";
 
 async function main() {
   try {
@@ -12,7 +12,7 @@ async function main() {
     const directory = core.getInput("working-directory");
     const serverOptions = core.getInput("options");
 
-    for (i in commands) {
+    for (const i in commands) {
       if (process.platform == "linux") {
         console.log("Command: " + commands[i]);
         await runCommandWithXvfb(commands[i], directory, serverOptions);
@@ -21,7 +21,7 @@ async function main() {
       }
     }
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(error);
   }
 }
 

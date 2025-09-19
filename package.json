@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Run your tests headlessly",
   "main": "index.js",
+  "type": "module",
+  "private": "true",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config rollup.config.js"
   },
   "keywords": [],
   "author": {
@@ -18,9 +24,12 @@
     "@actions/exec": "^1.1.1"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.36.0"
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^24.5.2",
+    "rollup": "^4.51.0"
   }
 }

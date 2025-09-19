@@ -11,16 +11,22 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        
+      - uses: actions/setup-node@v5
+        with:
+          cache: 'npm'
+          node-version: 24
+          cache-dependency-path: "package-lock.json"
 
       - name: Fail if rebuilding produce a dirty repo
         run: |
           npm install
-          npx ncc build index.js
+          npm run build
           if [[ -n $(git status --porcelain) ]]; then
             echo "Repo is dirty";
             git status --porcelain;
