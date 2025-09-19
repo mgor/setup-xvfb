@@ -27252,7 +27252,7 @@ async function main() {
   try {
     if (process.platform == "linux") {
       await execExports.exec("sudo apt-get update");
-      await execExports.exec("sudo apt-get install -y xvfb x11-xserver-utils");
+      await execExports.exec("sudo apt-get install -y xvfb x11-xserver-utils libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0 libgbm1 libasound2");
     }
 
     const commands = coreExports.getInput("run", { required: true }).split("\n");
